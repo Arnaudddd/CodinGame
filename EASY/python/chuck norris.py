@@ -8,20 +8,18 @@ dict_binary          = {i: [ls_binary[i], 'False', 1] for i in range(len(ls_bina
 for i in dict_binary: 
     if i > 0:
         if ((dict_binary[i][0] == '1' and dict_binary[i - 1][0] == '1') or 
-           (dict_binary[i][0] == '0' and dict_binary[i - 1][0] == '0')):
+            (dict_binary[i][0] == '0' and dict_binary[i - 1][0] == '0')):
             cpt, dict_binary[i][1] = dict_binary[i - 1][2] + 1, 'True'
             dict_binary[i][2], dict_binary[i - cpt + 1][2] = cpt, cpt
 
 for i in dict_binary:
     if dict_binary[i][1] == 'False':
-        if i > 0:
-            answer += " "
-        if dict_binary[i][0] == '1':
-            answer += '0 ' + '0'*dict_binary[i][2]
-        elif dict_binary[i][0] == '0':
-            answer +=  '00 ' + '0' * dict_binary[i][2]    
+        if i > 0:                      answer += " "
+        if dict_binary[i][0] == '1':   answer += '0 ' + '0'*dict_binary[i][2]
+        elif dict_binary[i][0] == '0': answer +=  '00 ' + '0' * dict_binary[i][2]    
 
 print(answer)
+
 '''
 100001111010001110101110001111010 
 1101000001001110110111111100101110010110100111100110100
